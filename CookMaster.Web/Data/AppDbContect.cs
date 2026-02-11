@@ -9,7 +9,6 @@ public class AppDbContext : DbContext
     public DbSet<RecipeStep> RecipeSteps {get; set;}
     public DbSet<StepReview> StepReviews {get; set;}
 
-
     public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
     {

@@ -1,13 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class RecipeStep
+public class RecipeStep : TimeAudit
 {
     public RecipeStep() {}
-    [Key]
-    [Required]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int ID {get; set;}
     [Required]
     [ForeignKey("RecipeID")]
     public int RecipeID {get; set;}
@@ -16,7 +12,7 @@ public class RecipeStep
     [Required]
     [StringLength (1000)]
     public string Instructions {get; set;}
-    public string ImageURL {get; set;}
+    public string? ImageURL {get; set;}
     [Required]
     public int AvgPrepTimeMins {get; set;}
     [Required]
@@ -27,12 +23,6 @@ public class RecipeStep
     public bool OptionalStep {get; set;}
     [StringLength (1000)]
     public string Tip {get; set;}
-    [Required]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public DateTime CreatedAt {get; set;}
-    [Required]
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-    public DateTime UpdatedAt {get; set;}
     public RecipeStep(
         int aStepNumber,
         string aInstructions,
@@ -41,9 +31,7 @@ public class RecipeStep
         int aAvgCookTimeMins,
         string aEquipment,
         bool aOptionalStep,
-        string aTip,
-        DateTime aCreatedAt,
-        DateTime aUpdatedAt
+        string aTip
         )
     {
         StepNumber = aStepNumber;
@@ -54,7 +42,5 @@ public class RecipeStep
         Equipment = aEquipment;
         OptionalStep = aOptionalStep;
         Tip = aTip;
-        CreatedAt = aCreatedAt;
-        UpdatedAt = aUpdatedAt;
     }
 }

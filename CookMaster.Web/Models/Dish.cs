@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-[Index(nameof(DishName), IsUnique=true)]
+[Index(nameof(Name), IsUnique=true)]
 public class Dish : Entity
 {
     public Dish() {}
@@ -14,7 +14,7 @@ public class Dish : Entity
     public CourseTypes CourseType {get; set;}
     [Required]
     public DifficultyLevels DifficultyLevel {get; set;}
-    public string ImageURL {get; set;}
+    public string? ImageURL {get; set;}
     public int AvgPrepTimeMins {get; set;}
     public int AvgCookTimeMins {get; set;}
     public int CreatedByUserID {get; set;}
@@ -33,9 +33,7 @@ public class Dish : Entity
         int aAvgCookTimeMins,
         int aCreatedByUserID,
         Statuses aStatus,
-        bool aIsVerified,
-        DateTime aCreatedAt,
-        DateTime aUpdatedAt
+        bool aIsVerified
         )
     {
         Name = aName;
@@ -49,7 +47,5 @@ public class Dish : Entity
         CreatedByUserID = aCreatedByUserID;
         Status = aStatus;
         IsVerified = aIsVerified;
-        CreatedAt = aCreatedAt;
-        UpdatedAt = aUpdatedAt;
     }
 }

@@ -1,13 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Inventory
+public class Inventory : Identity
 {
     public Inventory() {}
-    [Key]
-    [Required]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int ID {get; set;}
     [Required]
     [ForeignKey("IngredientID")]
     public int IngredientID {get; set;}

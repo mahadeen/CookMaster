@@ -2,18 +2,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-public class Recipe
+public class Recipe : Entity
 {
     public Recipe() {}
-    [Key]
-    [Required]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int ID {get; set;}
     [Required]
     public int DishID {get; set;}
-    [Required]
-    [StringLength(50, MinimumLength = 3)]
-    public string Title {get; set;}
     [StringLength(1000)]
     public string Description {get; set;}
     [Required]
@@ -33,15 +26,9 @@ public class Recipe
     public float TotalCost {get; set;}
     [NotMapped]
     public float CostPerServing {get {return TotalCost / Servings;}}
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Required]
-    public DateTime CreatedAt {get; set;}
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-    [Required]
-    public DateTime UpdatedAt {get; set;}
     public Dish Dish {get; set;}
     public Recipe(
-        string aTitle,
+        string aName,
         string aDescription,
         int aServings,
         int aAvgPrepTimeMins,
@@ -56,7 +43,7 @@ public class Recipe
         float aTotalCost
         )
     {
-        Title = aTitle;
+        Name = aName;
         Description = aDescription;
         Servings = aServings;
         AvgPrepTimeMins = aAvgPrepTimeMins;

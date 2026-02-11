@@ -1,12 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class StepReview
+public class StepReview : TimeAudit
 {
     public StepReview() {}
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int ID {get; set;}
     [Required]
     [ForeignKey("RecipStepID")]
     public int RecipStepID {get; set;}
@@ -25,14 +22,8 @@ public class StepReview
     public DifficultyLevels DifficultyLevel {get; set;}
     [StringLength(1000)]
     public string ImprovementSuggestions {get; set;}
-    public string ImageURL {get; set;}
+    public string? ImageURL {get; set;}
     public bool Success {get; set;}
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Required]
-    public DateTime CreatedAt {get; set;}
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-    [Required]
-    public DateTime UpdatedAt {get; set;}
 
     public StepReview(
         int aAttemptNumber,
@@ -43,9 +34,7 @@ public class StepReview
         DifficultyLevels aDifficultyLevel,
         string aImprovementSuggestions,
         string aImageURL,
-        bool aSuccess,
-        DateTime aCreatedAt,
-        DateTime aUpdatedAt
+        bool aSuccess
         )
     {
         AttemptNumber = aAttemptNumber;
@@ -57,7 +46,5 @@ public class StepReview
         ImprovementSuggestions = aImprovementSuggestions;
         ImageURL = aImageURL;
         Success = aSuccess;
-        CreatedAt = aCreatedAt;
-        UpdatedAt = aUpdatedAt;
     }
 }

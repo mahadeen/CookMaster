@@ -1,13 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class RecipeIngredient
+public class RecipeIngredient : Identity
 {
     public RecipeIngredient() {}
-    [Key]
-    [Required]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int ID {get; set;}
     [Required]
     [ForeignKey("RecipeID")]
     public int RecipeID {get; set;}

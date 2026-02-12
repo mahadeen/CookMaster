@@ -24,7 +24,6 @@ public class Recipe_Ingredient : Identity
     [Required]
     [ForeignKey("IngredientID")]
     public int IngredientID {get; set;}
-    // Navigation properties
     public Ingredient Ingredient {get; set;}
     public Recipe_Ingredient(
         int aQuantity,

@@ -8,7 +8,6 @@ public class StepReview : TimeAudit
     [ForeignKey("RecipStepID")]
     public int RecipStepID {get; set;}
     [Required]
-    [ForeignKey("RecipeID")]
     public int RecipeID {get; set;}
     public int AttemptNumber {get; set;}
     [Required]
@@ -24,6 +23,7 @@ public class StepReview : TimeAudit
     public string ImprovementSuggestions {get; set;}
     public string? ImageURL {get; set;}
     public bool Success {get; set;}
+    public RecipeStep RecipeStep {get; set;}
 
     public StepReview(
         int aAttemptNumber,

@@ -20,9 +20,10 @@ public class RecipeIngredient : Identity
     [StringLength(1000)]
     public string Notes {get; set;}
     [Required]
-    [ForeignKey("StepID")]
     public int StepID {get; set;}
     public int CostPerRecipe {get; set;}
+    public Recipe Recipe {get; set;}
+    public List<Ingredient> Ingredients = new();
     public RecipeIngredient(
         int aQuantity,
         MeasurementUnit aUnit,

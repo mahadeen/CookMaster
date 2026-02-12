@@ -1,8 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 public class Ingredient : Entity
 {
+    public Ingredient() {}
     [Required]
     public IngredientCategorys Category {get; set;}
     public string? ImageURL {get; set;}
@@ -14,6 +16,9 @@ public class Ingredient : Entity
     public float FatPer100g {get; set;}
     [Required]
     public float AvgCostPerUnit {get; set;}
+    public RecipeIngredient RecipeIngredients {get; set;}
+    public List<IngredientReview> IngredientReviews = new();
+    public List<Inventory> Inventories = new();
     public Ingredient(
         string aName,
         IngredientCategorys aCategory,
@@ -36,5 +41,4 @@ public class Ingredient : Entity
         FatPer100g = aFatPer100g;
         AvgCostPerUnit = aAvgCostPerUnit;
     }
-    public Ingredient() {}
 }

@@ -23,6 +23,9 @@ public class RecipeStep : TimeAudit
     public bool OptionalStep {get; set;}
     [StringLength (1000)]
     public string Tip {get; set;}
+    public Recipe Recipe {get; set;}
+    public List<StepReview> StepReviews {get; set;} = new();
+
     public RecipeStep(
         int aStepNumber,
         string aInstructions,

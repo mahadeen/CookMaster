@@ -1,17 +1,15 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 public class IngredientReview : TimeAudit
 {
     public IngredientReview() {}
     [Required]
-    [ForeignKey("IngredientID")]
     public int IngredientID {get; set;}
     [Required]
-    [ForeignKey("RecipeID")]
     public int RecipeID {get; set;}
     [Required]
-    [ForeignKey("RecipStepID")]
     public int RecipStepID {get; set;}
     [Required]
     public Ratings Rating {get; set;}
@@ -23,6 +21,7 @@ public class IngredientReview : TimeAudit
     public string ImprovementSuggestions {get; set;}
     [StringLength(1000)]
     public string? ImageURL {get; set;}
+    public Ingredient Ingredient {get; set;}
     public IngredientReview(
         Ratings aRating,
         string aReviewBody,

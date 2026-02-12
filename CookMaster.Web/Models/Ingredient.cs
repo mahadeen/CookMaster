@@ -16,8 +16,9 @@ public class Ingredient : Entity
     public float FatPer100g {get; set;}
     [Required]
     public float AvgCostPerUnit {get; set;}
-    public RecipeIngredient RecipeIngredients {get; set;}
-    public List<IngredientReview> IngredientReviews = new();
+    // Navigation properties
+    public List<Recipe_Ingredient> Recipe_Ingredients {get; set;} = new();
+    public List<IngredientReview> IngredientReviews {get; set;} = new();
     public List<Inventory> Inventories = new();
     public Ingredient(
         string aName,

@@ -19,6 +19,7 @@ public class Inventory : Identity
     public float Cost {get; set;}
     [StringLength(1000)]
     public string Notes {get; set;}
+    // Navigation properties
     public Ingredient Ingredient {get; set;}
 
     public Inventory(

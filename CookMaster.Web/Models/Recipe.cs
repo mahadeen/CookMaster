@@ -26,8 +26,9 @@ public class Recipe : Entity
     public float TotalCost {get; set;}
     [NotMapped]
     public float CostPerServing {get {return TotalCost / Servings;}}
+    // Navigation properties
     public Dish Dish {get; set;}
-    public List<RecipeIngredient> RecipeIngredients {get; set;} = new();
+    public List<Recipe_Ingredient> Recipe_Ingredients {get; set;} = new();
     public List<RecipeStep> RecipeSteps {get; set;} = new();
 
 

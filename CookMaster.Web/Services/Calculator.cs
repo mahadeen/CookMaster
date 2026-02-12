@@ -2,12 +2,12 @@ namespace ReviewPrototype.Services
 {
     public class Calculator
     {
-        public static float TotalCost(List<RecipeIngredient> recipeIngredients)
+        public static float TotalCost(List<Recipe_Ingredient> Recipe_Ingredients)
         {
             float total = 0;
-            foreach (RecipeIngredient recipeIngredient in recipeIngredients)
+            foreach (Recipe_Ingredient recipe_Ingredient in recipe_Ingredient)
             {
-                total = total + recipeIngredient.CostPerRecipe;
+                total = total + recipe_Ingredient.CostPerRecipe;
             }
             return total;
         }

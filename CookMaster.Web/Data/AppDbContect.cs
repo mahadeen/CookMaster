@@ -5,7 +5,7 @@ public class AppDbContext : DbContext
     public DbSet<IngredientReview> IngredientReviews { get; set; }
     public DbSet<Dish> Dishes {get; set;}
     public DbSet<Inventory> Inventories {get; set;}
-    public DbSet<RecipeIngredient> RecipeIngredients {get; set;}
+    public DbSet<Recipe_Ingredient> Recipe_Ingredients {get; set;}
     public DbSet<RecipeStep> RecipeSteps {get; set;}
     public DbSet<StepReview> StepReviews {get; set;}
 

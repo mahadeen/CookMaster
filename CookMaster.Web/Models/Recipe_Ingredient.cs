@@ -1,15 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class RecipeIngredient : Identity
+public class Recipe_Ingredient : Identity
 {
-    public RecipeIngredient() {}
-    [Required]
-    [ForeignKey("RecipeID")]
-    public int RecipeID {get; set;}
-    [Required]
-    [ForeignKey("IngredientID")]
-    public int IngredientID {get; set;}
+    public Recipe_Ingredient() {}
     [Required]
     public int Quantity {get; set;}
     [Required]
@@ -22,9 +16,17 @@ public class RecipeIngredient : Identity
     [Required]
     public int StepID {get; set;}
     public int CostPerRecipe {get; set;}
+    // Navigation properties
+    [Required]
+    [ForeignKey("RecipeID")]
+    public int RecipeID {get; set;}
     public Recipe Recipe {get; set;}
-    public List<Ingredient> Ingredients = new();
-    public RecipeIngredient(
+    [Required]
+    [ForeignKey("IngredientID")]
+    public int IngredientID {get; set;}
+    // Navigation properties
+    public Ingredient Ingredient {get; set;}
+    public Recipe_Ingredient(
         int aQuantity,
         MeasurementUnit aUnit,
         bool aIsOptional,

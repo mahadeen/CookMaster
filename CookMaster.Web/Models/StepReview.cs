@@ -23,6 +23,7 @@ public class StepReview : TimeAudit
     public string ImprovementSuggestions {get; set;}
     public string? ImageURL {get; set;}
     public bool Success {get; set;}
+    // Navigation properties
     public RecipeStep RecipeStep {get; set;}
 
     public StepReview(

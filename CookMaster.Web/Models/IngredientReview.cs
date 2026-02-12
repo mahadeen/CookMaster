@@ -21,6 +21,7 @@ public class IngredientReview : TimeAudit
     public string ImprovementSuggestions {get; set;}
     [StringLength(1000)]
     public string? ImageURL {get; set;}
+    // Navigation properties
     public Ingredient Ingredient {get; set;}
     public IngredientReview(
         Ratings aRating,

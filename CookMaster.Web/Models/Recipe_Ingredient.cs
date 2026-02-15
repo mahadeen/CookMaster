@@ -10,21 +10,20 @@ public class Recipe_Ingredient : Identity
     public MeasurementUnit Unit {get; set;}
     [Required]
     public bool IsOptional {get; set;}
-    public string Substitutions {get; set;}
+    public string? Substitutions {get; set;}
     [StringLength(1000)]
     public string Notes {get; set;}
     [Required]
     public int StepID {get; set;}
     public int CostPerRecipe {get; set;}
-    // Navigation properties
+    // Foreign Keys
     [Required]
-    [ForeignKey("RecipeID")]
     public int RecipeID {get; set;}
-    public Recipe Recipe {get; set;}
     [Required]
-    [ForeignKey("IngredientID")]
     public int IngredientID {get; set;}
-    public Ingredient Ingredient {get; set;}
+    // Navigation properties
+    public Recipe Recipe {get; set;} = null!;
+    public Ingredient Ingredient {get; set;} = null!;
     public Recipe_Ingredient(
         int aQuantity,
         MeasurementUnit aUnit,

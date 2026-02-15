@@ -6,23 +6,24 @@ public class Ingredient : Entity
 {
     public Ingredient() {}
     [Required]
-    public IngredientCategorys Category {get; set;}
-    public string? ImageURL {get; set;}
+    public IngredientCategorys IngredientCategory {get; set;}
     [Required]
     public MeasurementUnit Unit {get; set;}
-    public float CaloriesPer100g {get; set;}
-    public float ProtienPer100g {get; set;}
-    public float CarbsPer100g {get; set;}
-    public float FatPer100g {get; set;}
     [Required]
     public float AvgCostPerUnit {get; set;}
+    public string? ImageURL {get; set;}
+    public float? CaloriesPer100g {get; set;}
+    public float? ProtienPer100g {get; set;}
+    public float? CarbsPer100g {get; set;}
+    public float? FatPer100g {get; set;}
+
     // Navigation properties
     public List<Recipe_Ingredient> Recipe_Ingredients {get; set;} = new();
     public List<IngredientReview> IngredientReviews {get; set;} = new();
     public List<Inventory> Inventories = new();
     public Ingredient(
         string aName,
-        IngredientCategorys aCategory,
+        IngredientCategorys aIngredientCategory,
         string aImageURL,
         MeasurementUnit aUnit,
         float aCaloriesPer100g,
@@ -33,7 +34,7 @@ public class Ingredient : Entity
         )
     {
         Name = aName;
-        Category = aCategory;
+        IngredientCategorys = aIngredientCategory;
         ImageURL = aImageURL;
         Unit = aUnit;
         CaloriesPer100g = aCaloriesPer100g;

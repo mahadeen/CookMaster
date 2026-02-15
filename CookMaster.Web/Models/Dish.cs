@@ -6,20 +6,21 @@ using Microsoft.EntityFrameworkCore;
 public class Dish : Entity
 {
     public Dish() {}
-    [StringLength(1000)]
-    public string Description {get; set;}
     [Required]
     public Cuisines Cuisine {get; set;}
     [Required]
     public CourseTypes CourseType {get; set;}
     [Required]
     public DifficultyLevels DifficultyLevel {get; set;}
+    [StringLength(1000)]
+    public string? Description {get; set;}
     public string? ImageURL {get; set;}
-    public int AvgPrepTimeMins {get; set;}
-    public int AvgCookTimeMins {get; set;}
-    public int CreatedByUserID {get; set;}
-    public Statuses Status {get; set;}
-    public bool IsVerified {get; set;}
+    public int? AvgPrepTimeMins {get; set;}
+    public int? AvgCookTimeMins {get; set;}
+    public int? CreatedByUserID {get; set;}
+    public Statuses? Status {get; set;}
+    public bool? IsVerified {get; set;}
+    // Navigation properties
     public List<Recipe> Recipes {get; set;} = new();
 
     public Dish(

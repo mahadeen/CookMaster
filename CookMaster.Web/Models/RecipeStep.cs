@@ -5,9 +5,6 @@ public class RecipeStep : TimeAudit
 {
     public RecipeStep() {}
     [Required]
-    [ForeignKey("RecipeID")]
-    public int RecipeID {get; set;}
-    [Required]
     public int StepNumber {get; set;}
     [Required]
     [StringLength (1000)]
@@ -18,11 +15,14 @@ public class RecipeStep : TimeAudit
     [Required]
     public int AvgCookTimeMins {get; set;}
     [StringLength (1000)]
-    public string Equipment {get; set;}
+    public string? Equipment {get; set;}
     [Required]
     public bool OptionalStep {get; set;}
     [StringLength (1000)]
     public string Tip {get; set;}
+    // Foreign Keys
+    [Required]
+    public int RecipeID {get; set;}
     // Navigation properties
     public Recipe Recipe {get; set;}
     public List<StepReview> StepReviews {get; set;} = new();

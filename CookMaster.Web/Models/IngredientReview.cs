@@ -5,6 +5,16 @@ using Microsoft.EntityFrameworkCore;
 public class IngredientReview : TimeAudit
 {
     public IngredientReview() {}
+    public Ratings? Rating {get; set;}
+    [StringLength(1000)]
+    public string ReviewBody {get; set;}
+    public int? ActualTimeMinutes {get; set;}
+    [StringLength(1000)]
+    public string? Notes {get; set;}
+    [StringLength(1000)]
+    public string? ImprovementSuggestions {get; set;}
+    public string? ImageURL {get; set;}
+    // Foreign Keys
     [Required]
     public int IngredientID {get; set;}
     [Required]
@@ -12,15 +22,6 @@ public class IngredientReview : TimeAudit
     [Required]
     public int RecipStepID {get; set;}
     [Required]
-    public Ratings Rating {get; set;}
-    [StringLength(1000)]
-    public string ReviewBody {get; set;}
-    public int ActualTimeMinutes {get; set;}
-    [StringLength(1000)]
-    public string Notes {get; set;}
-    public string ImprovementSuggestions {get; set;}
-    [StringLength(1000)]
-    public string? ImageURL {get; set;}
     // Navigation properties
     public Ingredient Ingredient {get; set;}
     public IngredientReview(

@@ -4,25 +4,25 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class StepReview : TimeAudit
 {
     public StepReview() {}
-    [Required]
-    [ForeignKey("RecipStepID")]
-    public int RecipStepID {get; set;}
-    [Required]
-    public int RecipeID {get; set;}
-    public int AttemptNumber {get; set;}
+    public int? AttemptNumber {get; set;}
     [Required]
     public Ratings Rating {get; set;}
     [StringLength(1000)]
     public string ReviewBody {get; set;}
     public int ActualTimeMinutes {get; set;}
     [StringLength(1000)]
-    public string Notes {get; set;}
+    public string? Notes {get; set;}
     [Required]
-    public DifficultyLevels DifficultyLevel {get; set;}
+    public DifficultyLevels? DifficultyLevel {get; set;}
     [StringLength(1000)]
-    public string ImprovementSuggestions {get; set;}
+    public string? ImprovementSuggestions {get; set;}
     public string? ImageURL {get; set;}
-    public bool Success {get; set;}
+    public bool? Success {get; set;}
+    // Foreign Keys
+    [Required]
+    public int RecipStepID {get; set;}
+    [Required]
+    public int RecipeID {get; set;}
     // Navigation properties
     public RecipeStep RecipeStep {get; set;}
 
